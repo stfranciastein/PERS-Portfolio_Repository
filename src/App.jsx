@@ -16,6 +16,7 @@ import textureDark from './assets/images/Inverted.png';
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     // Check for saved theme preference or default to light
@@ -27,18 +28,40 @@ export default function App() {
   }, []);
 
   const toggleTheme = () => {
-    setIsDark(!isDark);
-    if (!isDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsDark(!isDark);
+      if (!isDark) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
+      setTimeout(() => setIsAnimating(false), 800);
+    }, 50);
   };
 
   return (
     <>
+      {/* Theme Burst Animation */}
+      {isAnimating && (
+        <div 
+          className="fixed top-8 left-8 z-[70] pointer-events-none"
+          style={{
+            width: '40px',
+            height: '40px',
+          }}
+        >
+          <div 
+            className={`absolute inset-0 rounded-full ${isDark ? 'bg-yellow-400' : 'bg-blue-500'}`}
+            style={{
+              animation: 'burst 0.8s ease-out forwards',
+            }}
+          />
+        </div>
+      )}
+      
       {/* Texture Overlay - outside the border container */}
       <div 
         className="fixed inset-0 m-[10px] pointer-events-none z-[60] rounded-tr-[50px] rounded-bl-[50px]"
@@ -56,7 +79,7 @@ export default function App() {
       {/* Dark Mode Toggle */}
       <button
         onClick={toggleTheme}
-        className="fixed top-8 left-8 z-50 p-2 rounded-lg border border-foreground hover:bg-muted transition-colors duration-300"
+        className={`fixed top-8 left-8 z-50 w-10 h-10 rounded-full rounded-tl-none ${isDark ? 'bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)]' : 'bg-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.8)]'} text-background flex items-center justify-center transition-shadow duration-300`}
         aria-label="Toggle dark mode"
       >
         {isDark ? (

@@ -6,12 +6,12 @@ export default function Home(){
               <img 
                 src="https://i.pinimg.com/736x/29/62/b1/2962b17c11aced64f0db5773c9eda192.jpg" 
                 alt="Josh Santiago-Francia"
-                className="w-full max-w-2xl rounded-[10px] grayscale"
+                className="w-full h-[500px] sm:h-auto max-w-2xl rounded-[10px] grayscale object-cover"
               />
             </div>
 
-            <div className="flex flex-col justify-center">
-              <h1 className="text-[clamp(3rem,8vw,100px)] font-bold leading-[0.9]">JOSH SANTIAGO FRANCIA</h1>
+            <div className="flex flex-col justify-center items-center lg:items-start">
+              <h1 className="text-[clamp(3rem,8vw,100px)] font-bold leading-[0.9] text-center lg:text-left">JOSH SANTIAGO FRANCIA</h1>
             </div>
           </div>
         </header>

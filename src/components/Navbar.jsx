@@ -39,7 +39,7 @@ export default function(){
                 home
             </button>
             <button
-                className={`lg:hidden w-3 h-3 rounded-full border-2 border-black transition-all duration-300 ${activeSection === 'home' ? 'bg-black' : 'bg-transparent'}`}
+                className={`lg:hidden w-3 h-3 rounded-full border-2 border-foreground transition-all duration-300 ${activeSection === 'home' ? 'bg-foreground' : 'bg-transparent'}`}
                 onClick={() => {
                   document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
                 }}
@@ -55,7 +55,7 @@ export default function(){
                 about
             </button>
             <button
-                className={`lg:hidden w-3 h-3 rounded-full border-2 border-black transition-all duration-300 ${activeSection === 'about' ? 'bg-black' : 'bg-transparent'}`}
+                className={`lg:hidden w-3 h-3 rounded-full border-2 border-foreground transition-all duration-300 ${activeSection === 'about' ? 'bg-foreground' : 'bg-transparent'}`}
                 onClick={() => {
                   document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
                 }}
@@ -71,7 +71,7 @@ export default function(){
                 projects
             </button>
             <button
-                className={`lg:hidden w-3 h-3 rounded-full border-2 border-black transition-all duration-300 ${activeSection === 'projects' ? 'bg-black' : 'bg-transparent'}`}
+                className={`lg:hidden w-3 h-3 rounded-full border-2 border-foreground transition-all duration-300 ${activeSection === 'projects' ? 'bg-foreground' : 'bg-transparent'}`}
                 onClick={() => {
                   document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
                 }}
@@ -87,7 +87,7 @@ export default function(){
                 contact
             </button>
             <button
-                className={`lg:hidden w-3 h-3 rounded-full border-2 border-black transition-all duration-300 ${activeSection === 'contact' ? 'bg-black' : 'bg-transparent'}`}
+                className={`lg:hidden w-3 h-3 rounded-full border-2 border-foreground transition-all duration-300 ${activeSection === 'contact' ? 'bg-foreground' : 'bg-transparent'}`}
                 onClick={() => {
                   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
                 }}

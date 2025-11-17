@@ -11,9 +11,7 @@ export default function Home(){
             </div>
 
             <div className="flex flex-col justify-center">
-              <h1 className="text-[clamp(3rem,8vw,100px)] font-bold leading-[0.9]">
-                JOSH SANTIAGO FRANCIA
-              </h1>
+              <h1 className="text-[clamp(3rem,8vw,100px)] font-bold leading-[0.9]">JOSH SANTIAGO FRANCIA</h1>
             </div>
           </div>
         </header>

@@ -6,12 +6,12 @@ export default function Home(){
               <img 
                 src="https://i.pinimg.com/736x/29/62/b1/2962b17c11aced64f0db5773c9eda192.jpg" 
                 alt="Josh Santiago-Francia"
-                className="w-full h-[500px] sm:h-auto max-w-2xl rounded-[10px] grayscale object-cover"
+                className="w-full h-[450px] sm:h-auto max-w-2xl rounded-[10px] grayscale object-cover"
               />
             </div>
 
             <div className="flex flex-col justify-center items-center lg:items-start gap-4">
-              <h1 className="text-[clamp(3rem,8vw,90px)] font-medium leading-[0.9] text-center lg:text-left">JOSH SANTIAGO FRANCIA</h1>
+              <h1 className="text-[clamp(2.4rem,8vw,90px)] font-medium leading-[0.9] text-center lg:text-left">JOSH SANTIAGO FRANCIA</h1>
               <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                 {['HTML', 'CSS', 'PHP', 'React', 'Tailwind', 'Bootstrap'].map((skill) => (
                   <span

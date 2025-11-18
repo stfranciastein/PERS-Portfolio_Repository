@@ -1,6 +1,6 @@
 export default function Home(){
     return (
-        <header id="home" className="h-screen flex items-start pt-9 pb-8">
+        <header id="home" className="h-screen flex items-start pt-9 pb-8 scroll-snap-align-start">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 w-full items-end">
             <div className="flex justify-center lg:justify-start">
               <img 
@@ -10,8 +10,18 @@ export default function Home(){
               />
             </div>
 
-            <div className="flex flex-col justify-center items-center lg:items-start">
-              <h1 className="text-[clamp(3rem,8vw,100px)] font-bold leading-[0.9] text-center lg:text-left">JOSH SANTIAGO FRANCIA</h1>
+            <div className="flex flex-col justify-center items-center lg:items-start gap-4">
+              <h1 className="text-[clamp(3rem,8vw,90px)] font-medium leading-[0.9] text-center lg:text-left">JOSH SANTIAGO FRANCIA</h1>
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+                {['HTML', 'CSS', 'PHP', 'React', 'Tailwind', 'Bootstrap'].map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-4 py-2 text-sm border-2 border-foreground bg-transparent rounded-full"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </header>

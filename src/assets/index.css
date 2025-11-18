@@ -1,3 +1,69 @@
+@keyframes modalClosingAnimation {
+  0% {
+    width: auto;
+    height: auto;
+    border-top-left-radius: 0;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 0;
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  40% {
+    width: 100vw;
+    height: 100vh;
+    border-top-left-radius: 0;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 0;
+    opacity: 1;
+    transform: scale(1.05) rotate(-2deg);
+  }
+  100% {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.7) rotate(-10deg);
+  }
+}
+
+.animate-modalClosing {
+  animation: modalClosingAnimation 0.8s cubic-bezier(0.7,0.2,0.2,1) both;
+}
+@keyframes modalLoadingAnimation {
+  0% {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.7) rotate(-10deg);
+  }
+  60% {
+    width: 100vw;
+    height: 100vh;
+    border-top-left-radius: 0;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 0;
+    opacity: 1;
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    width: auto;
+    height: auto;
+    border-top-left-radius: 0;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 0;
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.animate-modalLoading {
+  animation: modalLoadingAnimation 0.8s cubic-bezier(0.7,0.2,0.2,1) both;
+}
 @import "tailwindcss";
 @import "tw-animate-css";
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
@@ -45,7 +111,7 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: oklch(0.98 0.01 100);
   --foreground: oklch(0.129 0.042 264.695);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
@@ -79,7 +145,7 @@
 }
 
 .dark {
-  --background: oklch(0.129 0.042 264.695);
+  --background: oklch(0.2 0 0);
   --foreground: oklch(0.984 0.003 247.858);
   --card: oklch(0.208 0.042 265.755);
   --card-foreground: oklch(0.984 0.003 247.858);
@@ -131,6 +197,37 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  
+  .scroll-snap-type-y {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-snap-mandatory {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+  
+  .scroll-snap-align-start {
+    scroll-snap-align: start;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
 }
 
 @keyframes burst {
@@ -142,4 +239,165 @@
     transform: scale(50);
     opacity: 0;
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loadingAnimation {
+  0% {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border-width: 4px;
+    border-top-color: transparent;
+    transform: rotate(0deg) scale(1);
+    top: 50%;
+    left: 50%;
+    margin-top: -32px;
+    margin-left: -32px;
+  }
+  40% {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border-width: 4px;
+    border-top-color: transparent;
+    transform: rotate(720deg) scale(1);
+    top: 50%;
+    left: 50%;
+    margin-top: -32px;
+    margin-left: -32px;
+  }
+  60% {
+    width: 80px;
+    height: 80px;
+    border-radius: 20%;
+    border-width: 5px;
+    border-top-color: var(--foreground);
+    transform: rotate(720deg) scale(1);
+    top: 50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -40px;
+  }
+  80% {
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+    border-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-width: 5px;
+    border-top-color: var(--foreground);
+    transform: rotate(720deg) scale(1);
+    top: 10px;
+    left: 10px;
+    margin-top: 0;
+    margin-left: 0;
+  }
+  100% {
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+    border-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-width: 5px;
+    border-top-color: var(--foreground);
+    transform: rotate(720deg) scale(1);
+    top: 10px;
+    left: 10px;
+    margin-top: 0;
+    margin-left: 0;
+    opacity: 1;
+  }
+}
+
+.loading-shape {
+  position: fixed;
+  border: 4px solid var(--foreground);
+  border-top-color: transparent;
+  animation: loadingAnimation 2s ease-in-out forwards;
+}
+
+.animate-fadeIn {
+  animation: contentFadeIn 0.6s ease-out forwards;
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wordCycle {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+.animate-wordCycle {
+  animation: wordCycle 3s ease-in-out infinite;
+}
+
+.underline-themed {
+  text-decoration: underline;
+  text-decoration-color: #3b82f6;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.dark .underline-themed {
+  text-decoration-color: #facc15;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+@media (min-width: 1280px) {
+  .vertical-text-responsive {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+}
+
+.scroll-snap-align-start {
+  animation: fadeIn 0.6s ease-out;
 }

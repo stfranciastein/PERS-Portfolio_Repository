@@ -1,17 +1,63 @@
 [
     {
-        "slug": "todo-app",
-        "title": "Todo App",
-        "description": "A simple todo application to manage daily tasks.",
+        "slug": "ATLAS",
+        "title": "ATLAS",
+        "description": "A React-based application for tracking and visualising global data. Uses the Rest Countries API, the Wikipedia API, NewsAPI and the WeatherAPI to provide up-to-date information on every country in the world.",
         "screenshots": [
             {
-                "url": "https://picsum.photos/seed/todoapp/600/400",
+                "url": "src/assets/images/projects/Atlas.png",
                 "caption": "Screenshot of Todo App"
             }
         ],
-        "url": "https://example.com/todo-app",
-        "github": "",
+        "url": "https://atlasrestcountries.netlify.app",
+        "github": "https://github.com/stfranciastein/Y3-FED-CA1-REST_Countries",
         "date": "2025",
         "tags": ["React", "JavaScript", "CSS", "HTML"]
+    },
+    {
+        "slug": "PLANIT",
+        "title": "PLANIT",
+        "description": "A Laraval + Flutter based applicaton for managing and tracking your carbon footprint. Uses Bootstrap 5 for styling, and is hosted on Laravel Cloud.",
+        "screenshots": [
+            {
+                "url": "src/assets/images/projects/Planit.png",
+                "caption": "Screenshot of Weather Dashboard"
+            }
+        ],
+        "url": "https://y2-sw-project-ca-master-xxr4rw.laravel.cloud/",
+        "github": "https://github.com/stfranciastein/Y2-SW_Project_CA",
+        "date": "2025",
+        "tags": ["Laravel", "Flutter", "CSS", "HTML", "Bootstrap"]
+    },
+    {
+        "slug": "personal-blog",
+        "title": "Personal Blog",
+        "description": "A personal blog platform to share articles and thoughts.",
+        "screenshots": [
+            {
+                "url": "https://picsum.photos/seed/personalblog/600/400",
+                "caption": "Screenshot of Personal Blog"
+            }
+        ],
+        "url": "https://example.com/personal-blog",
+        "github": "",
+        "date": "2023",
+        "tags": ["Gatsby", "GraphQL", "CSS", "HTML"]
+    },
+    {
+        "slug": "personal-blog",
+        "title": "Personal Blog",
+        "description": "A personal blog platform to share articles and thoughts.",
+        "screenshots": [
+            {
+                "url": "https://picsum.photos/seed/personalblog/600/400",
+                "caption": "Screenshot of Personal Blog"
+            }
+        ],
+        "url": "https://example.com/personal-blog",
+        "github": "",
+        "date": "2023",
+        "tags": ["Gatsby", "GraphQL", "CSS", "HTML"]
     }
+    
 ]

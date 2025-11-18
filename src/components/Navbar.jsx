@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function(){
+export default function({ isModalOpen }){
     const [activeSection, setActiveSection] = useState('home');
 
     useEffect(() => {
@@ -28,12 +28,12 @@ export default function(){
     }, []);
 
     return (
-    <nav className="fixed right-10 top-8 z-10">
+    <nav className={`fixed right-10 top-8 z-10 transition-opacity duration-300 ${isModalOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
           <div className="flex flex-col gap-2 items-end">
             <button
-                className={`hidden lg:block text-[clamp(1.5rem,4vw,35px)] lowercase hover:opacity-70 transition-all duration-300 ${activeSection === 'home' ? 'opacity-100' : 'opacity-30'}`}
+                className={`hidden lg:block text-[clamp(1.5rem,4vw,35px)] lowercase hover:opacity-70 transition-all duration-300 ${activeSection === 'home' ? 'opacity-100' : 'opacity-50'}`}
                 onClick={() => {
-                  document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('home').scrollIntoView({ block: 'start' });
                 }}
             >
                 home
@@ -41,15 +41,15 @@ export default function(){
             <button
                 className={`lg:hidden w-3 h-3 rounded-full border-2 border-foreground transition-all duration-300 ${activeSection === 'home' ? 'bg-foreground' : 'bg-transparent'}`}
                 onClick={() => {
-                  document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('home').scrollIntoView({ block: 'start' });
                 }}
                 aria-label="Home section"
             />
 
             <button
-                className={`hidden lg:block text-[clamp(1.5rem,4vw,35px)] lowercase hover:opacity-70 transition-all duration-300 ${activeSection === 'about' ? 'opacity-100' : 'opacity-30'}`}
+                className={`hidden lg:block text-[clamp(1.5rem,4vw,35px)] lowercase hover:opacity-70 transition-all duration-300 ${activeSection === 'about' ? 'opacity-100' : 'opacity-50'}`}
                 onClick={() => {
-                  document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('about').scrollIntoView({ block: 'start' });
                 }}
             >
                 about
@@ -57,15 +57,15 @@ export default function(){
             <button
                 className={`lg:hidden w-3 h-3 rounded-full border-2 border-foreground transition-all duration-300 ${activeSection === 'about' ? 'bg-foreground' : 'bg-transparent'}`}
                 onClick={() => {
-                  document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('about').scrollIntoView({ block: 'start' });
                 }}
                 aria-label="About section"
             />
 
             <button
-                className={`hidden lg:block text-[clamp(1.5rem,4vw,35px)] lowercase hover:opacity-70 transition-all duration-300 ${activeSection === 'projects' ? 'opacity-100' : 'opacity-30'}`}
+                className={`hidden lg:block text-[clamp(1.5rem,4vw,35px)] lowercase hover:opacity-70 transition-all duration-300 ${activeSection === 'projects' ? 'opacity-100' : 'opacity-50'}`}
                 onClick={() => {
-                  document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('projects').scrollIntoView({ block: 'start' });
                 }}
             >
                 projects
@@ -73,15 +73,15 @@ export default function(){
             <button
                 className={`lg:hidden w-3 h-3 rounded-full border-2 border-foreground transition-all duration-300 ${activeSection === 'projects' ? 'bg-foreground' : 'bg-transparent'}`}
                 onClick={() => {
-                  document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('projects').scrollIntoView({ block: 'start' });
                 }}
                 aria-label="Projects section"
             />
 
             <button
-                className={`hidden lg:block text-[clamp(1.5rem,4vw,35px)] lowercase hover:opacity-70 transition-all duration-300 ${activeSection === 'contact' ? 'opacity-100' : 'opacity-30'}`}
+                className={`hidden lg:block text-[clamp(1.5rem,4vw,35px)] lowercase hover:opacity-70 transition-all duration-300 ${activeSection === 'contact' ? 'opacity-100' : 'opacity-50'}`}
                 onClick={() => {
-                  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('contact').scrollIntoView({ block: 'start' });
                 }}
             >
                 contact
@@ -89,7 +89,7 @@ export default function(){
             <button
                 className={`lg:hidden w-3 h-3 rounded-full border-2 border-foreground transition-all duration-300 ${activeSection === 'contact' ? 'bg-foreground' : 'bg-transparent'}`}
                 onClick={() => {
-                  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                  document.getElementById('contact').scrollIntoView({ block: 'start' });
                 }}
                 aria-label="Contact section"
             />

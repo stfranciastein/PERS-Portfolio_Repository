@@ -1,6 +1,31 @@
+import { useState, useEffect } from 'react';
+
 export default function Footer() {
+    const [isVisible, setIsVisible] = useState(true);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        const mainElement = document.querySelector('main');
+        const homeElement = document.getElementById('home');
+        
+        if (mainElement && homeElement) {
+          const scrollPosition = mainElement.scrollTop;
+          const homeHeight = homeElement.offsetHeight;
+          
+          // Hide footer when scrolled past home section
+          setIsVisible(scrollPosition < homeHeight - 100);
+        }
+      };
+
+      const mainElement = document.querySelector('main');
+      mainElement?.addEventListener('scroll', handleScroll);
+      handleScroll(); // Initial check
+
+      return () => mainElement?.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-<footer className="pb-2 flex flex-col items-center gap-4">
+<footer className={`pb-2 flex flex-col items-center gap-4 transition-all duration-500 ease-in-out ${isVisible ? 'opacity-100 max-h-[500px]' : 'opacity-0 max-h-0 overflow-hidden'}`}>
           <div className="border-t-[3px] border-foreground w-fit max-w-[90%]">
             <div className="text-4xl md:text-6xl lg:text-7xl xl:text-7xl 2xl:text-8xl font-bold leading-tight pt-4 text-center tracking-widest flex items-center justify-center gap-4 flex-wrap">
               <span>WEB DEV</span>

@@ -3,13 +3,11 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 
 // pages
-import Contact from './pages/Contact'
-import PageNotFound from './pages/PageNotFound';
-import ProjectIndex from '@/pages/projects/Index';
+// import Contact from './pages/Contact'
 import Home from '@/components/Home';
 import About from '@/components/About';
 import Projects from '@/components/Projects';
-import Connect from '@/components/Connect';
+import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import textureLight from './assets/images/Distressed.jpg';
 import textureDark from './assets/images/Inverted.png';
@@ -17,6 +15,8 @@ import textureDark from './assets/images/Inverted.png';
 export default function App() {
   const [isDark, setIsDark] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // Check for saved theme preference or default to light
@@ -25,6 +25,13 @@ export default function App() {
       setIsDark(true);
       document.documentElement.classList.add('dark');
     }
+    
+    // Hide loading screen after 2 seconds
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   const toggleTheme = () => {
@@ -44,6 +51,13 @@ export default function App() {
 
   return (
     <>
+      {/* Loading Screen */}
+      {isLoading && (
+        <div className="fixed inset-0 z-[100] bg-background flex items-center justify-center">
+          <div className="loading-shape"></div>
+        </div>
+      )}
+      
       {/* Theme Burst Animation */}
       {isAnimating && (
         <div 
@@ -79,7 +93,7 @@ export default function App() {
       {/* Dark Mode Toggle */}
       <button
         onClick={toggleTheme}
-        className={`fixed top-8 left-8 z-50 w-10 h-10 rounded-full rounded-tl-none ${isDark ? 'bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)]' : 'bg-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.8)]'} text-background flex items-center justify-center transition-shadow duration-300`}
+        className={`fixed top-8 left-8 z-50 w-10 h-10 rounded-full rounded-tl-none ${isDark ? 'bg-yellow-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.8)]' : 'bg-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.8)]'} text-background flex items-center justify-center transition-shadow duration-300 ${isLoading ? 'opacity-0' : 'animate-fadeIn'}`}
         aria-label="Toggle dark mode"
       >
         {isDark ? (
@@ -93,12 +107,12 @@ export default function App() {
         )}
       </button>
       
-      <Navbar />
-      <main className="container mw-4xl mx-auto px-6 sm:px-8 lg:px-12 flex-1 overflow-y-auto scrollbar-hide">
+      <Navbar isModalOpen={isModalOpen} />
+      <main className={`container mw-4xl mx-auto px-6 sm:px-8 lg:px-12 flex-1 overflow-y-auto scrollbar-hide scroll-snap-type-y scroll-snap-mandatory ${isLoading ? 'opacity-0' : 'animate-fadeIn'}`}>
         <Home />
         <About />
-        <Projects />
-        <Connect />
+        <Projects setIsModalOpen={setIsModalOpen} />
+        <Contact />
       </main>
       <Footer />
     </div>

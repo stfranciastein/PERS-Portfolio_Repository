@@ -1,57 +1,42 @@
+import { useState, useEffect } from 'react';
+
 export default function About(){
+    const [currentWord, setCurrentWord] = useState(0);
+    const words = ['AESTHETIC', 'INNOVATIVE', 'EFFECTIVE'];
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentWord((prev) => (prev + 1) % words.length);
+      }, 3000);
+
+      return () => clearInterval(interval);
+    }, [words.length]);
+
     return (
-                <header id="about" className="min-h-screen flex items-center">
-          <div className="grid lg:grid-cols-5 gap-12 sm:gap-16 w-full">
-            <div className="lg:col-span-3 space-y-6 sm:space-y-8">
-              <div className="space-y-3 sm:space-y-2">
-                <div className="text-sm text-muted-foreground tracking-wider">PORTFOLIO / 2025</div>
-                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
-                  Josh <span className="text-muted-foreground">Santiago-Francia</span>
-                </h1>
-              </div>
-
-              <div className="space-y-6 max-w-md">
-                <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                  Frontend Developer crafting digital experiences at the intersection of
-                  <span className="text-foreground"> design</span>,<span className="text-foreground"> technology</span>, and
-                  <span className="text-foreground"> user experience</span>.
-                </p>
-
-                <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    Available for work
-                  </div>
-                  <div>Ireland</div>
-                </div>
-              </div>
+        <section id="about" className="h-screen flex items-center scroll-snap-align-start">
+          <div className="grid xl:grid-cols-5 gap-12 sm:gap-16 w-full">
+            <div className="xl:col-span-3 flex items-center">
+              <h1 className="text-[clamp(3rem,15vw,120px)] font-bold leading-[0.9] tracking-tight">
+                CREATING DESIGNS THAT ARE{' '}
+                <span
+                  key={currentWord}
+                  className="inline-block text-blue-500 dark:text-yellow-400 animate-wordCycle font-mono"
+                  style={{ minWidth: '10ch', maxWidth: '10ch', display: 'inline-block', whiteSpace: 'nowrap' }}
+                >
+                  {words[currentWord]}
+                </span>
+              </h1>
             </div>
 
-            <div className="lg:col-span-2 flex flex-col justify-end space-y-6 sm:space-y-8 mt-8 lg:mt-0">
-              <div className="space-y-4">
-                <div className="text-sm text-muted-foreground font-mono">CURRENTLY</div>
-                <div className="space-y-2">
-                  <div className="text-foreground">Student</div>
-                  <div className="text-muted-foreground">@ IADT</div>
-                  <div className="text-xs text-muted-foreground">2023 — Present</div>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="text-sm text-muted-foreground font-mono">FOCUS</div>
-                <div className="flex flex-wrap gap-2">
-                  {['HTML', 'CSS', 'JavaScript', 'PHP', 'React', 'Tailwind CSS', 'Express.js'].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 text-xs border border-border rounded-full hover:border-muted-foreground/50 transition-colors duration-300"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            <div className="xl:col-span-2 flex flex-col justify-center space-y-6 sm:space-y-8 mt-8 xl:mt-0">
+              <p className="text-lg text-foreground leading-relaxed">
+                I'm a passionate web developer and designer commited to crafting <span className="underline-themed">visually appealing</span> and <span className="underline-themed">user-friendly</span> digital experiences. Whether it be through clean code or intuitive and bold designs, I strive to create solutions that not only look great but also function seamlessly.
+              </p>
+              <p className="text-lg text-foreground leading-relaxed">
+                I've been a tech enthusiast for years, constantly exploring new tools and techniques that can enhance my skills in both <span className="underline-themed">coding</span> and <span className="underline-themed">design</span>. I'm always eager to take on new challenges and collaborate on exciting projects.
+              </p>
             </div>
           </div>
-        </header>
+        </section>
     );
 }

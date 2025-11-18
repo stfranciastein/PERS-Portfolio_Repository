@@ -108,7 +108,7 @@ export default function App() {
       </button>
       
       <Navbar isModalOpen={isModalOpen} />
-      <main className={`container mw-4xl mx-auto px-6 sm:px-8 lg:px-12 flex-1 overflow-y-auto scrollbar-hide scroll-snap-type-y scroll-snap-mandatory ${isLoading ? 'opacity-0' : 'animate-fadeIn'}`}>
+      <main className={`container mw-4xl mx-auto px-6 sm:px-8 lg:px-12 flex-1 overflow-y-auto scrollbar-hide ${isLoading ? 'opacity-0' : 'animate-fadeIn'}${window.innerWidth >= 1280 ? ' scroll-snap-type-y scroll-snap-mandatory' : ''}`}>
         <Home />
         <About />
         <Projects setIsModalOpen={setIsModalOpen} />

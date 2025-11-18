@@ -5,22 +5,22 @@
         "description": "A React-based application for tracking and visualising global data. Uses the Rest Countries API, the Wikipedia API, NewsAPI and the WeatherAPI to provide up-to-date information on every country in the world.",
         "screenshots": [
             {
-                "url": "src/assets/images/projects/Atlas.png",
+                "url": "/images/projects/Atlas.png",
                 "caption": "Screenshot of Todo App"
             }
         ],
         "url": "https://atlasrestcountries.netlify.app",
         "github": "https://github.com/stfranciastein/Y3-FED-CA1-REST_Countries",
         "date": "2025",
-        "tags": ["React", "JavaScript", "CSS", "HTML"]
+        "tags": ["React", "JavaScript", "CSS", "HTML", "DaisyUI"]
     },
     {
         "slug": "PLANIT",
         "title": "PLANIT",
-        "description": "A Laraval + Flutter based applicaton for managing and tracking your carbon footprint. Uses Bootstrap 5 for styling, and is hosted on Laravel Cloud.",
+        "description": "A Laravel + Flutter based applicaton for managing and tracking your carbon footprint. Uses Bootstrap 5 for styling, and is hosted on Laravel Cloud.",
         "screenshots": [
             {
-                "url": "src/assets/images/projects/Planit.png",
+                "url": "/images/projects/Planit.png",
                 "caption": "Screenshot of Weather Dashboard"
             }
         ],
@@ -30,19 +30,19 @@
         "tags": ["Laravel", "Flutter", "CSS", "HTML", "Bootstrap"]
     },
     {
-        "slug": "personal-blog",
-        "title": "Personal Blog",
-        "description": "A personal blog platform to share articles and thoughts.",
+        "slug": "SAVOUR",
+        "title": "SAVOUR",
+        "description": "A website created with Bootstrap for a fictional app called Savour, which helps users manage their food waste and discover recipes based on ingredients they have at home. This is a two-part project made for two different classes. The website is fully functional, and the attached Figma prototype is for the prototype of the App. The prototype was used as a design reference to ensure stylistic consistency between the app and the website.",
         "screenshots": [
             {
-                "url": "https://picsum.photos/seed/personalblog/600/400",
-                "caption": "Screenshot of Personal Blog"
+                "url": "/images/projects/Savour.png",
+                "caption": "Screenshot of Savour"
             }
         ],
-        "url": "https://example.com/personal-blog",
+        "url": "https://savourtheflavour.netlify.app",
         "github": "",
-        "date": "2023",
-        "tags": ["Gatsby", "GraphQL", "CSS", "HTML"]
+        "date": "2024",
+        "tags": ["CSS", "HTML", "Bootstrap", "JavaScript", "Figma"]
     },
     {
         "slug": "personal-blog",
@@ -50,7 +50,7 @@
         "description": "A personal blog platform to share articles and thoughts.",
         "screenshots": [
             {
-                "url": "https://picsum.photos/seed/personalblog/600/400",
+                "url": "/images/projects/personalblog.png",
                 "caption": "Screenshot of Personal Blog"
             }
         ],

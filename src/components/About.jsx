@@ -29,10 +29,10 @@ export default function About(){
             </div>
 
             <div className="xl:col-span-2 flex flex-col justify-center space-y-6 sm:space-y-8 mt-8 xl:mt-0">
-              <p className="text-lg text-foreground leading-relaxed">
+              <p className="text-lg text-foreground leading-relaxed break-words">
                 I'm a passionate web developer and designer commited to crafting <span className="underline-themed">visually appealing</span> and <span className="underline-themed">user-friendly</span> digital experiences. Whether it be through clean code or intuitive and bold designs, I strive to create solutions that not only look great but also function seamlessly.
               </p>
-              <p className="text-lg text-foreground leading-relaxed">
+              <p className="text-lg text-foreground leading-relaxed break-words">
                 I've been a tech enthusiast for years, constantly exploring new tools and techniques that can enhance my skills in both <span className="underline-themed">coding</span> and <span className="underline-themed">design</span>. I'm always eager to take on new challenges and collaborate on exciting projects.
               </p>
             </div>

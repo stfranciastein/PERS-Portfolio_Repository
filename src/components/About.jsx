@@ -20,8 +20,8 @@ export default function About(){
                 CREATING DESIGNS THAT ARE{' '}
                 <span
                   key={currentWord}
-                  className="inline-block text-blue-500 dark:text-yellow-400 animate-wordCycle font-mono"
-                  style={{ minWidth: '10ch', maxWidth: '10ch', display: 'inline-block', whiteSpace: 'nowrap' }}
+                  className="inline-block text-blue-500 dark:text-yellow-400 animate-wordCycle font-mono italic"
+                  style={{ minWidth: '10ch', maxWidth: '10ch', display: 'inline-block', whiteSpace: 'nowrap', fontStyle: 'italic' }}
                 >
                   {words[currentWord]}
                 </span>

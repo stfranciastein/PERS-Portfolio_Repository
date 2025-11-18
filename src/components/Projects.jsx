@@ -22,7 +22,7 @@ export default function Projects({ setIsModalOpen }){
 
     return (
     <>
-    <section id="projects" className="flex items-center scroll-snap-align-start xl:overflow-y-auto overflow-x-hidden">
+    <section id="projects" className="flex items-center scroll-snap-align-start xl:overflow-y-auto overflow-x-hidden xl:h-screen">
           <div className="flex gap-0 xl:gap-6 w-full items-start py-9 flex-col xl:flex-row">
 
             <div className="flex items-start flex-shrink-0">

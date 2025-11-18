@@ -152,8 +152,8 @@ export default function Projects({ setIsModalOpen }){
 
         {/* Modal */}
         {(isModalOpenLocal || isClosing) && (
-          <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm">
-            <div className={`relative bg-background border-2 border-foreground max-w-5xl w-full max-h-[80vh] overflow-hidden flex flex-col ${isClosing ? 'animate-modalClosing' : 'animate-modalLoading'}`}> 
+          <div className="fixed inset-0 z-[80] flex items-center justify-center p-0 bg-background/80 backdrop-blur-sm">
+            <div className={`relative bg-background border-2 border-foreground w-[90vw] max-w-[90vw] h-[90vh] max-h-[90vh] overflow-hidden flex flex-col ${isClosing ? 'animate-modalClosing' : 'animate-modalLoading'}`}> 
               <div className="flex items-center justify-between p-4 border-b border-border">
                 <h2 className="text-2xl font-bold">All Projects</h2>
                 <button

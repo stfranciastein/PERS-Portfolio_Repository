@@ -13,7 +13,7 @@ export default function About(){
     }, [words.length]);
 
     return (
-        <section id="about" className="h-screen flex items-center scroll-snap-align-start">
+        <section id="about" className="min-h-screen flex items-center scroll-snap-align-start py-12">
           <div className="grid xl:grid-cols-5 gap-6 xl:gap-12 w-full">
             <div className="xl:col-span-3 flex items-center">
               <h1 className="text-[clamp(2rem,12vw,120px)] md:text-[clamp(2.4rem,15vw,120px)] font-bold leading-[0.9] tracking-tight">

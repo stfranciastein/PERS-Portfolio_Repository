@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import projectsData from '../assets/data/projects.json';
+import ProjectDetail from './ProjectDetail';
 
 export default function Projects({ setIsModalOpen }){
     const [isModalOpenLocal, setIsModalOpenLocal] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const closeTimeoutRef = useRef(null);
     const [currentPage, setCurrentPage] = useState(0);
+    const [selectedProject, setSelectedProject] = useState(null);
     const projectsPerPage = 6;
     const totalPages = Math.ceil(projectsData.length / projectsPerPage);
 
@@ -41,7 +43,11 @@ export default function Projects({ setIsModalOpen }){
                 {projectsData.map((project) => (
                   <div
                     key={project.slug}
-                    className="flex gap-3 border-b border-border pb-3 hover:border-muted-foreground/50 transition-colors duration-300"
+                    onClick={() => {
+                      setSelectedProject(project);
+                      setIsModalOpen(true);
+                    }}
+                    className="flex gap-3 border-b border-border pb-3 hover:border-muted-foreground/50 transition-colors duration-300 cursor-pointer"
                   >
                     <div className="w-24 h-24 flex-shrink-0 bg-muted rounded-lg overflow-hidden">
                       <img
@@ -89,7 +95,11 @@ export default function Projects({ setIsModalOpen }){
                     {projectsData.map((project) => (
                     <div
                       key={project.slug}
-                      className="w-[clamp(250px,300px,300px)] h-[clamp(200px,250px,250px)] lg:h-[clamp(300px,450px,450px)] perspective-1000 group/card"
+                      onClick={() => {
+                        setSelectedProject(project);
+                        setIsModalOpen(true);
+                      }}
+                      className="w-[clamp(250px,300px,300px)] h-[clamp(200px,250px,250px)] lg:h-[clamp(300px,450px,450px)] perspective-1000 group/card cursor-pointer"
                     >
                       <div className="relative w-full h-full transition-transform duration-700 transform-style-3d group-hover/card:rotate-y-180">
                         {/* Front of card */}
@@ -179,7 +189,10 @@ export default function Projects({ setIsModalOpen }){
                   {modalProjects.map((project) => (
                     <div
                       key={project.slug}
-                      className="group border border-border rounded-lg overflow-hidden hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-lg"
+                      onClick={() => {
+                        setSelectedProject(project);
+                      }}
+                      className="group border border-border rounded-lg overflow-hidden hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-lg cursor-pointer"
                     >
                       <div className="aspect-video bg-muted overflow-hidden">
                         <img
@@ -244,6 +257,19 @@ export default function Projects({ setIsModalOpen }){
               </div>
             </div>
           </div>
+        )}
+
+        {/* Project Detail Modal */}
+        {selectedProject && (
+          <ProjectDetail
+            project={selectedProject}
+            onClose={() => {
+              setSelectedProject(null);
+              if (!isModalOpenLocal) {
+                setIsModalOpen(false);
+              }
+            }}
+          />
         )}
       </>
     );

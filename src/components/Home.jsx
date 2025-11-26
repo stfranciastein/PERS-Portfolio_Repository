@@ -1,7 +1,7 @@
 export default function Home(){
     return (
-        <header id="home" className="h-screen flex items-start pt-9 pb-8 scroll-snap-align-start">
-          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 w-full items-end">
+        <header id="home" className="min-h-screen h-screen flex items-start pt-9 pb-8 scroll-snap-align-start">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 w-full items-end pb-12 sm:pb-0">
             <div className="flex justify-center lg:justify-start">
               <img 
                 src="https://i.pinimg.com/736x/29/62/b1/2962b17c11aced64f0db5773c9eda192.jpg" 
